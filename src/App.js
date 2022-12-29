@@ -1,4 +1,7 @@
 import logo from "./logo.svg";
+import React, {useState, useRef} from 'react';
+import { loadStdlib } from '@reach-sh/stdlib';
+import {ALGO_MyAlgoConnect as MyAlgoConnect} from '@reach-sh/stdlib';
 import "./App.css";
 import Jumbo from "./components/jumbo";
 import TechStack from "./components/technologyStack";
