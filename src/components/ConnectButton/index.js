@@ -1,8 +1,11 @@
+import { Button } from "@mui/material"
+import palette from "../pallete"
+
 const ConnectButton = ({connectWallet}) => {
     return(
-        <button onClick ={connectWallet} className="jumboButton2">
+        <Button sx={{backgroundColor: palette.purple, color: "white"}} onClick ={connectWallet}>
            CONNECT MYALGO WALLET
-        </button>
+        </Button>
     )
 }
 

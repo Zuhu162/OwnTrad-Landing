@@ -3,25 +3,38 @@ import React, {useState, useRef} from 'react';
 import { loadStdlib } from '@reach-sh/stdlib';
 import {ALGO_MyAlgoConnect as MyAlgoConnect} from '@reach-sh/stdlib';
 import "./App.css";
-import Jumbo from "./components/jumbo";
-import TechStack from "./components/technologyStack";
 import Nav from "./components/nav";
 import { Container } from "@mui/system";
-import Highlights from "./components/highlights";
-import Footer from "./components/footer";
-import Divider from "@mui/material/Divider";
+import Login from "./components/login";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+import Dashboard from "./components/dashboard";
 
 function App() {
+  const [loggedIn, setLoggedIn] = useState(false);
+
+  let toggleLogIn = () => {
+    setLoggedIn(!loggedIn);
+    console.log(loggedIn);
+  }
+
+  console.log(loggedIn)
+
   return (
     <div className="App">
-      <Container>
-        <Nav></Nav>
-      </Container>
-      <Jumbo></Jumbo>
-      <Highlights />
-      <Divider></Divider>
-      <TechStack />
-      <Footer></Footer>
+      <Nav logOut={toggleLogIn}></Nav>
+      <Router>
+        <Switch>
+          <Route exact path="/">
+            {loggedIn ? <Dashboard></Dashboard> : <Login loggedIn={() => toggleLogIn()}></Login>}
+          </Route>
+        </Switch>
+      </Router>
+    
     </div>
   );
 }
