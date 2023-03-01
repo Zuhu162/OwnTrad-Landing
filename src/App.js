@@ -7,6 +7,8 @@ import { Container } from "@mui/system";
 import Highlights from "./components/highlights";
 import Footer from "./components/footer";
 import Divider from "@mui/material/Divider";
+//const reach = loadStdlib("ALGO");
+//reach.setWalletFallback(reach.walletFallback({providerEnv:'TestNet', MyAlgoConnect }));
 
 function App() {
   return (
